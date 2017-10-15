@@ -2,10 +2,13 @@ package lab1;
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
-
+//This is changes
+//This is changes
+//This is changes
 
 public class Text {
 	
+	//This is changes
 	private int t=0;
 	public StringBuilder mp=new StringBuilder();
 	public Graph g;

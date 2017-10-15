@@ -1,5 +1,7 @@
 package lab1;
-
+//This is changes
+//This is changes
+//This is changes
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -20,6 +22,7 @@ public class Graph {
 		else
 			return 0;
 	}
+	//This is changes
 	public int Getedge(int x,int y)//·µ»Ø±ßx->y
 	{
 		return edge[x][y];
