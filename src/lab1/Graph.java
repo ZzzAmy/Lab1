@@ -2,6 +2,7 @@ package lab1;
 //This is changes
 //This is changes
 //This is changes
+//This is the B2 changes in the situation two
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -9,7 +10,7 @@ import java.io.Reader;
 import java.util.*;
 import java.util.Map.Entry;
 public class Graph {
-
+	//This is the B2 changes in the situation two
 	public int edge[][];
 	public String strr[];//Ô­Ê¼×Ö·û´®
 	public int n;
