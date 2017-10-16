@@ -2,13 +2,12 @@ package lab1;
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
-//This is changes
-//This is changes
-//This is changes
+//Changes in zmy branch
 
 public class Text {
 	
 	//This is changes
+	//Changes in zmy branch
 	private int t=0;
 	public StringBuilder mp=new StringBuilder();
 	public Graph g;
