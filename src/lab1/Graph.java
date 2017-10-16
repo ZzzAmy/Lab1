@@ -22,8 +22,29 @@ public class Graph {
 			return 1;
 		else
 			return 0;
+=======
+package lab1;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.*;
+import java.util.Map.Entry;
+public class Graph {
+
+	public int edge[][];
+	public String strr[];//Ô­Ê¼×Ö·û´®
+	public int n;
+	public HashMap<String,Integer> map;
+	public HashMap<Integer,Integer> repeat;
+	public int isRepeat(int x)
+	{
+		if(repeat.get(x-1)==1)
+			return 1;
+		else
+			return 0;
 	}
-	//This is changes
 	public int Getedge(int x,int y)//·µ»Ø±ßx->y
 	{
 		return edge[x][y];
@@ -172,4 +193,3 @@ public class Graph {
             e.printStackTrace();
         }
 	}
-}
