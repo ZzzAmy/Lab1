@@ -1,0 +1,8 @@
+abandon,,abandon->note->scale->abandon|abandon->use|abandon->note->scale|abandon->note|abandon->note->scale->face|,
+abandon,scale,abandon->note->scale|abandon->use->scale,
+,,非法输入！,
+abandon,scale,to,非法输入！
+validation,to,我们的图里不存在这样的单词,
+validation,machine,我们的图里不存在这样的单词,
+face,,从该点出发没有路,
+scale,to,不存在两个单词之间的路径,
