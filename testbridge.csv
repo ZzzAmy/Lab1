@@ -1,0 +1,11 @@
+mother,father,No ¡°mother¡± and ¡°father¡± in the graph!
+mother,to,No ¡°mother¡± in the graph!
+to,mother,No ¡°mother¡± in the graph!
+hit,hit,No bridge words from ¡°hit¡± to ¡°hit¡± !
+to,hit,No bridge words from ¡°to¡± to ¡°hit¡± !
+out,to,The bridge words from ¡°out¡± to ¡°to¡± is£ºseek look love 
+hit,freestyle,The bridge words from ¡°hit¡± to ¡°freestyle¡± is£ºcomputer 
+future,hit,No bridge words from ¡°future¡± to ¡°hit¡± !
+freestyle,hit,The bridge words from ¡°freestyle¡± to ¡°hit¡± is£ºcomputer 
+to,out,The bridge words from ¡°to¡± to ¡°out¡± is£ºseek look love 
+for,dog,The bridge words from ¡°for¡± to ¡°dog¡± is£ºout the 
