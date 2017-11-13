@@ -1,4 +1,6 @@
 package lab1;
+import java.util.*;
+import java.lang.*;
 import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
@@ -58,84 +60,143 @@ public class Text {
 	}
 	public String queryBridgeWords(String word1,String word2)//查询桥连接
 	{
+		//int num2 = 1 / 0;
+		StringBuilder res = new StringBuilder();
 		int x=g.Getpos(word1);
 		int y=g.Getpos(word2);
 		int n=g.Getn();
 		int[] pos = new int[100];
 		int k=-1;
 		StringBuilder result = new StringBuilder();
-		if((x!= -1)&&(y!=-1))
+		if(x!=-1)
 		{
-			for(int i=0;i<=n;i++)
+			if(y!=-1)
 			{
-				if(((g.Getedge(x, i)!=100000)&&(g.Getedge(i, y)!=100000))||(g.Getedge(y,i)!=100000)&&(g.Getedge(i,x)!=100000))
+				for(int i=0;i<=n;i++)
 				{
-					result.append(g.Getstr(i));
-					k++;
-					pos[k]=i;
-					result.append(' ');
-				}
-			}
-			try
-			{
-				String gvout ="F:\\\\Java\\\\eclipse_workspace\\\\lab1\\\\bridge.dot";
-				FileOutputStream fos = new FileOutputStream(gvout);
-				OutputStreamWriter fw = new OutputStreamWriter(fos,"UTF-8");
-				fw.write("digraph G {");
-				for(int i=1;i<=n;i++)
-				{
-					for(int j=1;j<=n;j++)
+					if(((g.Getedge(x, i)!=100000)&&(g.Getedge(i, y)!=100000))||(g.Getedge(y,i)!=100000)&&(g.Getedge(i,x)!=100000))
 					{
-						if((g.Getedge(i, j) != 100000))
-						{
-							fw.write('\t');
-							fw.write(g.Getstr(i));
-							fw.write(" -> ");
-							fw.write(g.Getstr(j));
-							fw.write(";\r\n");					
-							//System.out.println(i+"，"+j+"："+g.Getstr(i)+"->"+g.Getstr(j));
-						}
+						result.append(g.Getstr(i));
+						k++;
+						pos[k]=i;
+						result.append(' ');
 					}
-					
 				}
-				fw.write("\r\n");
-				fw.write(g.Getstr(x));
-				fw.write("[fillcolor=yellow,style=filled,Label=\"");
-				fw.write(g.Getstr(x));
-				fw.write("\"];");
-				fw.write("\r\n");
-				fw.write(g.Getstr(y));
-				fw.write("[fillcolor=yellow,style=filled,Label=\"");
-				fw.write(g.Getstr(y));
-				fw.write("\"];");
-				fw.write("\r\n");
-				for(int i=0;i<=k;i++)
+				try
 				{
-					fw.write(g.Getstr(pos[i]));
-					fw.write("[fillcolor=red,style=filled,Label=\"");
-					fw.write(g.Getstr(pos[i]));
+					String gvout ="F:\\\\Java\\\\eclipse_workspace\\\\lab1\\\\bridge.dot";
+					FileOutputStream fos = new FileOutputStream(gvout);
+					OutputStreamWriter fw = new OutputStreamWriter(fos,"UTF-8");
+					fw.write("digraph G {");
+					for(int i=1;i<=n;i++)
+					{
+						for(int j=1;j<=n;j++)
+						{
+							if((g.Getedge(i, j) != 100000))
+							{
+								fw.write('\t');
+								fw.write(g.Getstr(i));
+								fw.write(" -> ");
+								fw.write(g.Getstr(j));
+								fw.write(";\r\n");					
+								//System.out.println(i+"，"+j+"："+g.Getstr(i)+"->"+g.Getstr(j));
+							}
+						}
+						
+					}
+					fw.write("\r\n");
+					fw.write(g.Getstr(x));
+					fw.write("[fillcolor=yellow,style=filled,Label=\"");
+					fw.write(g.Getstr(x));
 					fw.write("\"];");
 					fw.write("\r\n");
+					fw.write(g.Getstr(y));
+					fw.write("[fillcolor=yellow,style=filled,Label=\"");
+					fw.write(g.Getstr(y));
+					fw.write("\"];");
+					fw.write("\r\n");
+					for(int i=0;i<=k;i++)
+					{
+						fw.write(g.Getstr(pos[i]));
+						fw.write("[fillcolor=red,style=filled,Label=\"");
+						fw.write(g.Getstr(pos[i]));
+						fw.write("\"];");
+						fw.write("\r\n");
+					}
+					fw.write("}");
+					fw.close();
+					 String path = "dot Kdot -Tpng bridge.dot -o bridge.png";
+				        try {
+				        	Runtime.getRuntime().exec(path,null,new File("F:\\Java\\eclipse_workspace\\lab1"));
+				        } catch (Exception e) {
+				            e.printStackTrace();
+				        }
+					
+				}catch(Exception e)
+				{
+					e.printStackTrace();
 				}
-				fw.write("}");
-				fw.close();
-				 String path = "dot Kdot -Tpng bridge.dot -o bridge.png";
-			        try {
-			        	Runtime.getRuntime().exec(path,null,new File("F:\\Java\\eclipse_workspace\\lab1"));
-			        } catch (Exception e) {
-			            e.printStackTrace();
-			        }
 				
-			}catch(Exception e)
-			{
-				e.printStackTrace();
+				
+				 if(result.toString().length() == 0)
+				 {
+					 res.append("No ");
+					 res.append("bridge ");
+					 res.append("words ");
+					 res.append("from ");
+					 res.append("“");
+					 res.append(word1);
+					 res.append("” to “");
+					 res.append(word2);
+					 res.append("” !");
+					 //System.out.println("No bridge words from “"+word1+"” to “"+word2+"!");
+				 }
+				 else
+				 {
+					 res.append("The ");
+					 res.append("bridge ");
+					 res.append("words ");
+					 res.append("from “");
+					 res.append(word1);
+					 res.append("” to “");
+					 res.append(word2);
+					 res.append("” is：");
+					 res.append(result.toString());
+					 //System.out.println("The bridge words from  “"+word1+"” to “"+word2+"” is:"+re)
+				 }
 			}
-			
-			
-			return result.toString();
+			else
+			{
+				res.append("No ");
+				 res.append("“");
+				 res.append(word2);
+				 res.append("” in the graph!");
+				//System.out.println("No “"+word2+"” in the graph!");
+			}
 		}
 		else
-			return result.toString();
+		{
+			if(y!=-1)
+			{
+				res.append("No ");
+				 res.append("“");
+				 res.append(word1);
+				 res.append("” in the graph!");
+				//System.out.println("No “"+word1+"” in the graph!");
+			}
+			else
+			{
+				res.append("No ");
+				 res.append("“");
+				 res.append(word1);
+				 res.append("” and “");
+				 res.append(word2);
+				 res.append("” in the graph!");
+				//System.out.println("No “"+word1+"” and “"+word2+"” in the graph!");
+			}
+		}
+		
+			return res.toString();
 		
 	}
 	public String generateNewText(String inputText)//根据bridge生成新文本
@@ -344,7 +405,7 @@ public class Text {
 							String str2=sb.toString();
 							if(!(str2.equals(str1)))
 							{
-								builder.append('\n');
+								builder.append('|');
 								builder.append(str2);
 							}
 						}
@@ -364,7 +425,7 @@ public class Text {
 						{
 							builder.append(g.Getstr(x));
 							builder.append(mutipath);
-							builder.append('\n');
+							builder.append('|');
 							muti++;
 							
 						}
@@ -734,31 +795,32 @@ public class Text {
 			System.out.println("非法输入！");
 		else
 		{
-			word1=cmd_array[1];
-			word2=cmd_array[2];			
-			if((g.Isingraph(word1) == 0)&&(g.Isingraph(word2)==0))
-			{
-				System.out.println("No “"+word1+"” and “"+word2+"” in the graph!");
-			}
-			else if(g.Isingraph(word1) == 0)
-			{
-				System.out.println("No “"+word1+"” in the graph!");
-			}
-			else if(g.Isingraph(word2) == 0)
-			{
-				System.out.println("No “"+word2+"” in the graph!");
-			}
-			else
-			{
-				re= t.queryBridgeWords(word1, word2);
-				if(re.length() == 0)
-					System.out.println("No bridge words from “"+word1+"” to “"+word2+"!");
-				else
-				System.out.println("The bridge words from  “"+word1+"” to “"+word2+"” is:"+re);
-			}
-				
-			  
 			
+			word1=cmd_array[1];
+			word2=cmd_array[2];
+			re= t.queryBridgeWords(word1, word2);
+			System.out.println(re);
+//			if((g.Isingraph(word1) == 0)&&(g.Isingraph(word2)==0))
+//			{
+//				System.out.println("No “"+word1+"” and “"+word2+"” in the graph!");
+//			}
+//			else if(g.Isingraph(word1) == 0)
+//			{
+//				System.out.println("No “"+word1+"” in the graph!");
+//			}
+//			else if(g.Isingraph(word2) == 0)
+//			{
+//				System.out.println("No “"+word2+"” in the graph!");
+//			}
+//			else
+//			{
+//				re= t.queryBridgeWords(word1, word2);
+//				if(re.length() == 0)
+//					System.out.println("No bridge words from “"+word1+"” to “"+word2+"!");
+//				else
+//				System.out.println("The bridge words from  “"+word1+"” to “"+word2+"” is:"+re);
+//			}
+				
 		}
 		}
 		else if(cmd_array[0].equals("getnew"))
@@ -781,6 +843,7 @@ public class Text {
 		System.out.println(outputText);
 		}
 		}
+		//shortest
 		else if(cmd_array[0].equals("shortest"))
 		{
 			
@@ -791,12 +854,12 @@ public class Text {
 			if(null != cmd_array[k]) a++;
 		}
                if(a==2)
-		{
-            	   word1=cmd_array[1];
-            	   word2="";
-			min=t.calcShortestPath(word1,word2);
-			System.out.println(min);
-		}
+				{
+		            	   word1=cmd_array[1];
+		            	   word2="";
+					min=t.calcShortestPath(word1,word2);
+					System.out.println(min);
+				}
 		else if(a==3)
 		{
 			word1=cmd_array[1];
