@@ -1,8 +1,6 @@
-package lab1;
+package control;
 
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,25 +10,26 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BridgeWordTestCase {
-	
-	Graph g = new Graph();
-	Text t = new Text(g);
+import org.junit.Before;
+import org.junit.Test;
 
+import entity.TextGraph;
+
+public class CcalcShortestPathTest {
+
+	public TextGraph g;
 	@Before
 	public void setUp() throws Exception {
-		
 	}
 
 	@Test
-	public void testQueryBridgeWords(){
-		
-		//int num2 = 1 / 0;
+	public void testCalcShortestPath1(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -46,7 +45,9 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(0).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				System.out.println(aa[0]);
+				System.out.println(aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -59,18 +60,16 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
-		
 	}
 	
 	@Test
-	public void testQueryBridgeWords2() {
-		
+	public void testCalcShortestPath2(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -86,7 +85,7 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(1).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -99,17 +98,16 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
 	}
 	
 	@Test
-	public void testQueryBridgeWords3() {
-		
+	public void testCalcShortestPath3(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -125,7 +123,7 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(2).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -138,17 +136,16 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
 	}
 	
 	@Test
-	public void testQueryBridgeWords4() {
-		
+	public void testCalcShortestPath4(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -164,7 +161,7 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(3).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -177,17 +174,17 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
 	}
 	
+	
 	@Test
-	public void testQueryBridgeWords5() {
-		
+	public void testCalcShortestPath5(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -203,7 +200,7 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(4).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -216,17 +213,15 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
 	}
-	
 	@Test
-	public void testQueryBridgeWords6() {
-		
+	public void testCalcShortestPath6(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -242,7 +237,7 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(5).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -255,17 +250,15 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
 	}
-	
 	@Test
-	public void testQueryBridgeWords7() {
-		
+	public void testCalcShortestPath7(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -281,7 +274,7 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(6).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -294,16 +287,15 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
 	}
 	@Test
-	public void testQueryBridgeWords8() {
-		
+	public void testCalcShortestPath8(){
+		CcalcShortestPath t = new CcalcShortestPath(g);
 		List<String> stringlist = new ArrayList<String>();
 		try
 		{
 			String encoding = "GBK";
-			File file = new File("testbridge.csv");
+			File file = new File("testshortest.csv");
 			if(file.isFile() && file.exists())
 			{
 				InputStreamReader read = new InputStreamReader(
@@ -319,7 +311,7 @@ public class BridgeWordTestCase {
 				read.close();
 				String res = new String();
 				String[] aa =stringlist.get(7).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
+				res = t.calcShortestPath(aa[0], aa[1]);
 				assertEquals(aa[2],res);
 			}
 			else
@@ -332,129 +324,7 @@ public class BridgeWordTestCase {
 			e.printStackTrace();
 			fail("Not yet implemented");
 		}
-		
 	}
-	
-	@Test
-	public void testQueryBridgeWords9() {
-		
-		List<String> stringlist = new ArrayList<String>();
-		try
-		{
-			String encoding = "GBK";
-			File file = new File("testbridge.csv");
-			if(file.isFile() && file.exists())
-			{
-				InputStreamReader read = new InputStreamReader(
-						new FileInputStream(file),encoding
-						);
-				BufferedReader buffreader = new BufferedReader(read);
-				String lineText = null;
-				while((lineText = buffreader.readLine()) != null)
-				{
-					stringlist.add(lineText);
-				}
-				buffreader.close();
-				read.close();
-				String res = new String();
-				String[] aa =stringlist.get(8).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
-				assertEquals(aa[2],res);
-			}
-			else
-			{
-				System.out.println("找不到该文件");
-			}
-			
-		}catch(IOException e)
-		{
-			e.printStackTrace();
-			fail("Not yet implemented");
-		}
-		
-	}
-	@Test
-	public void testQueryBridgeWords10() {
-		
-		List<String> stringlist = new ArrayList<String>();
-		try
-		{
-			String encoding = "GBK";
-			File file = new File("testbridge.csv");
-			if(file.isFile() && file.exists())
-			{
-				InputStreamReader read = new InputStreamReader(
-						new FileInputStream(file),encoding
-						);
-				BufferedReader buffreader = new BufferedReader(read);
-				String lineText = null;
-				while((lineText = buffreader.readLine()) != null)
-				{
-					stringlist.add(lineText);
-				}
-				buffreader.close();
-				read.close();
-				String res = new String();
-				String[] aa =stringlist.get(9).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
-				assertEquals(aa[2],res);
-			}
-			else
-			{
-				System.out.println("找不到该文件");
-			}
-			
-		}catch(IOException e)
-		{
-			e.printStackTrace();
-			fail("Not yet implemented");
-		}
-		
-	}
-	@Test
-	public void testQueryBridgeWords11() {
-		
-		List<String> stringlist = new ArrayList<String>();
-		try
-		{
-			String encoding = "GBK";
-			File file = new File("testbridge.csv");
-			if(file.isFile() && file.exists())
-			{
-				InputStreamReader read = new InputStreamReader(
-						new FileInputStream(file),encoding
-						);
-				BufferedReader buffreader = new BufferedReader(read);
-				String lineText = null;
-				while((lineText = buffreader.readLine()) != null)
-				{
-					stringlist.add(lineText);
-				}
-				buffreader.close();
-				read.close();
-				String res = new String();
-				String[] aa =stringlist.get(10).split(",");
-				res = t.queryBridgeWords(aa[0], aa[1]);
-				assertEquals(aa[2],res);
-			}
-			else
-			{
-				System.out.println("找不到该文件");
-			}
-			
-		}catch(IOException e)
-		{
-			e.printStackTrace();
-			fail("Not yet implemented");
-		}
-		
-	}
+
 
 }
-
-//for(int i=0;i<stringlist.size();i++)
-//{
-//	String[] aa =stringlist.get(i).split(",");
-//	res = t.queryBridgeWords(aa[0], aa[1]);
-//	assertEquals(aa[2],res);
-//}
